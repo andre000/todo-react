@@ -1,8 +1,12 @@
 import type { TodoItemProps } from "./TodoItem.types";
 
 export const TodoItem: React.FC<TodoItemProps> = ({ todo, className }) => {
+  const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
+    event.dataTransfer.setData('text/plain', todo.id);
+  };
+
   return (
-    <div className={`shadow-md rounded-lg p-4 mb-4 cursor-move ${className}`} draggable data-id={todo.id}>
+    <div className={`shadow-md rounded-lg p-4 mb-4 cursor-move ${className}`} draggable onDragStart={handleDragStart}>
       <p className="text-gray-600">{todo.text}</p>
       <div className="mt-2">
         {todo.tags.map(tag => (

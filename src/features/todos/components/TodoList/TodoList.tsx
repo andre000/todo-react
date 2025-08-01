@@ -6,11 +6,18 @@ import { TodoAddItem } from "../TodoAddItem/TodoAddItem";
 import type { TodoListProps } from "./TodoList.types";
 
 export const TodoList: React.FC<TodoListProps> = ({ title, status }) => {
-  const { list } = useTodos();
+  const { list, updateTodo } = useTodos();
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
-    // Handle drop logic here
+
+    const todoId = event.dataTransfer.getData('text/plain');
+    const droppedTodo = list.find(t => t.id === todoId);
+
+    if (droppedTodo) {
+      updateTodo(todoId, { ...droppedTodo, status });
+    }
+    event.dataTransfer.clearData();
   };
 
   const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
@@ -23,7 +30,7 @@ export const TodoList: React.FC<TodoListProps> = ({ title, status }) => {
     setIsOpen(true);
   };
 
-  const cardClassDone = "bg-green-100 border-green-300 text-green-800 opacity-50";
+  const cardClassDone = "bg-green-100 border-green-300 text-green-800 opacity-50 z-10";
   const cardClassTodo = "bg-yellow-100 border-yellow-300 text-yellow-800";
 
   return (
