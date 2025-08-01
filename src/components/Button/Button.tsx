@@ -5,9 +5,9 @@ export const Button: React.FC<ButtonProps> = ({ children, className, color, size
   const baseStyles = "rounded focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors";
 
   const colorStyles = {
-    primary: "bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500",
-    secondary: "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500",
-    danger: "bg-red-500 text-white hover:bg-red-600 focus:ring-red-500",
+    primary: "bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500 dark:bg-blue-700 dark:hover:bg-blue-800",
+    secondary: "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500 dark:bg-gray-700 dark:hover:bg-gray-800",
+    danger: "bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 dark:bg-red-700 dark:hover:bg-red-800",
   };
 
   const sizeStyles = {

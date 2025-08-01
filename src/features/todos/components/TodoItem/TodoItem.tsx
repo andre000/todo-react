@@ -17,10 +17,10 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, className }) => {
       <span className="text-gray-400 hover:text-gray-600 cursor-pointer absolute top-2 right-4" onClick={handleDelete}>
         &times;
       </span>
-      <p className="text-gray-600">{todo.text}</p>
+      <p className="text-gray-600 dark:text-gray-300">{todo.text}</p>
       <div className="mt-2">
         {todo.tags.map(tag => (
-          <span key={tag} className="inline-block bg-gray-200 text-gray-700 rounded-full px-2 py-1 text-xs font-semibold mr-2">
+          <span key={tag} className="inline-block bg-gray-200 text-gray-700 rounded-full px-2 py-1 text-xs font-semibold mr-2 dark:bg-gray-700 dark:text-gray-300">
             {tag}
           </span>
         ))}

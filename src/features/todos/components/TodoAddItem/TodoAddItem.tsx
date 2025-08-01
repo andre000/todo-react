@@ -39,9 +39,9 @@ export const TodoAddItem: React.FC<TodoAddItemProps> = ({ status, isOpen, onClos
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <form className="p-4">
-        <h2 className="text-lg font-bold mb-2">Add New Todo</h2>
+        <h2 className="text-lg font-bold mb-2 dark:text-white">Add New Todo</h2>
         <div className="mb-2 flex flex-col gap-2">
-          <p>To-do text:</p>
+          <p className="dark:text-white">To-do text:</p>
           <Input
             ref={inputRef}
             type="text"
@@ -51,7 +51,7 @@ export const TodoAddItem: React.FC<TodoAddItemProps> = ({ status, isOpen, onClos
             onKeyDown={handleEnterKey}
           />
 
-          <p>Tags (optional):</p>
+          <p className="dark:text-white">Tags (optional):</p>
           <Input
             type="text"
             placeholder="Enter todo tags (comma separated)"
