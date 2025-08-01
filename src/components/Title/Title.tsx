@@ -17,7 +17,7 @@ export const Title: React.FC<TitleProps>  = ({ children, level = 1, className, .
   const Tag = `h${level}` as `h1` | `h2` | `h3` | `h4`;
 
   return (
-    <Tag className={clsx(`text-gray-800 font-sans font-bold`, sizes[level], className)} {...rest}>
+    <Tag className={clsx(`font-sans font-bold`, sizes[level], className)} {...rest}>
       {children}
     </Tag>
   );
