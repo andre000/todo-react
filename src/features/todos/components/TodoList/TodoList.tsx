@@ -35,7 +35,7 @@ export const TodoList: React.FC<TodoListProps> = ({ title, status }) => {
 
   return (
     <>
-    <div className="bg-white shadow-md rounded-lg p-6 w-1/3 min-h-128" onDrop={handleDrop} onDragOver={handleDragOver}>
+    <div className="bg-white shadow-md rounded-lg p-6 w-full min-h-1/3 md:w-1/3 md:min-h-128" onDrop={handleDrop} onDragOver={handleDragOver}>
       <div className="flex justify-between items-center mb-4">
         <Title level={3} className="text-gray-600">{title}</Title>
         <button className="text-blue-500 cursor-pointer font-bold" onClick={handleAddTodo}> + </button>
