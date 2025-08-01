@@ -1,16 +1,7 @@
 import type { Todo, TodosAction, TodosState } from "./types";
 
 export const initialState: TodosState = {
-  list: [
-    {
-      id: '1',
-      text: 'This is a sample todo item',
-      status: 'todo',
-      tags: ['tag1', 'tag2'],
-      createdAt: new Date().toISOString(),
-      completed: false
-    }
-  ]
+  list: []
 };
 
 export function todosReducer(state: TodosState, action: TodosAction): TodosState {
