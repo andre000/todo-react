@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTodos } from "../../../../store/todos";
 import { Modal } from "../../../../components/Modal";
 import { Button } from "../../../../components/Button";
@@ -10,6 +10,7 @@ export const TodoAddItem: React.FC<TodoAddItemProps> = ({ status, isOpen, onClos
 
   const [newTodoText, setNewTodoText] = useState("");
   const [newTodoTags, setNewTodoTags] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const validateInput = (text: string) => {
     return text.trim().length > 0;
@@ -29,6 +30,11 @@ export const TodoAddItem: React.FC<TodoAddItemProps> = ({ status, isOpen, onClos
       handleAddClick();
     }
   };
+  useEffect(() => {
+    if (isOpen) {
+      inputRef.current?.focus();
+    }
+  }, [isOpen]);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -37,6 +43,7 @@ export const TodoAddItem: React.FC<TodoAddItemProps> = ({ status, isOpen, onClos
         <div className="mb-2 flex flex-col gap-2">
           <p>To-do text:</p>
           <Input
+            ref={inputRef}
             type="text"
             placeholder="Enter todo text"
             value={newTodoText}

@@ -1,7 +1,11 @@
 import clsx from "clsx";
+import { forwardRef } from "react";
 import type { InputProps } from "./Input.types";
 
-export const Input: React.FC<InputProps> = ({ className, status, ...props }) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  { className, status, ...props },
+  ref
+) {
   const baseStyles = "border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors";
 
   const statusStyles = {
@@ -14,6 +18,7 @@ export const Input: React.FC<InputProps> = ({ className, status, ...props }) => 
 
   return (
     <input
+      ref={ref}
       className={clsx(
         baseStyles,
         statusClass,
@@ -22,4 +27,4 @@ export const Input: React.FC<InputProps> = ({ className, status, ...props }) => 
       {...props}
     />
   );
-};
+});
