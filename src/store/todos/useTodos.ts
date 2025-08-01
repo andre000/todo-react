@@ -11,7 +11,7 @@ export function useTodos() {
 
   return {
     list,
-    addTodo: (todo: Omit<Todo, 'id' | 'status' | 'createdAt' | 'completed'>) => {
+    addTodo: (todo: Omit<Todo, 'id' | 'createdAt' | 'completed'>) => {
       dispatch(addTodo(todo));
     },
     removeTodo: (id: string) => {

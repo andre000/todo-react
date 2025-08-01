@@ -1,4 +1,4 @@
-import type { Todo, TodoStatus, TodosAction, TodosState } from "./types";
+import type { Todo, TodosAction, TodosState } from "./types";
 
 export const initialState: TodosState = {
   list: [
@@ -19,7 +19,6 @@ export function todosReducer(state: TodosState, action: TodosAction): TodosState
       const newTodo = {
         ...action.payload,
         id: crypto.randomUUID(),
-        status: 'todo' as TodoStatus,
         createdAt: new Date().toISOString(),
         completed: false
       };
@@ -43,9 +42,9 @@ export function todosReducer(state: TodosState, action: TodosAction): TodosState
 }
 
 /* Actions */
-export const addTodo = (todo: Omit<Todo, 'id' | 'status' | 'createdAt' | 'completed'>): TodosAction => ({
+export const addTodo = (todo: Omit<Todo, 'id' | 'createdAt' | 'completed'>): TodosAction => ({
   type: 'add',
-  payload: { ...todo, id: '', status: 'todo', createdAt: '', completed: false }
+  payload: { ...todo, id: '', createdAt: '', completed: false }
 });
 
 export const removeTodo = (id: string): TodosAction => ({
