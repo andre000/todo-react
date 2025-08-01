@@ -1,11 +1,15 @@
-import { Title } from './components/Title/Title'
 import { Default } from './layout/default'
+import { TodoList } from './features/todos/components/TodoList/TodoList'
 import './styles/globals.css'
 
 function App() {
   return (
     <Default>
-      <Title level={1}>Todo App</Title>
+      <div className='flex gap-4'>
+        <TodoList title='To do' />
+        <TodoList title='In progress' />
+        <TodoList title='Done' />
+      </div>
     </Default>
   )
 }
