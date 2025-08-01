@@ -1,4 +1,4 @@
-import { Title } from '../components/Title/Title'
+import { Title } from '../components/Title'
 
 export function Default({ children }: React.PropsWithChildren) {
   return (
