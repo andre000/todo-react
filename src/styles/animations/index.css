@@ -1,0 +1,24 @@
+:root {
+  --animate-slide-down: slide-down .33s ease-in-out;
+  --animate-fade-in: fade-in .33s ease-in-out;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
