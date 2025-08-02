@@ -23,7 +23,7 @@ A simple, performant, and accessible Todo application built with React, TypeScri
 
 ## Demo
 
-// TODO
+[Todo App](https://todo-react-sable-six.vercel.app)
 
 ## Tech Stack
 
